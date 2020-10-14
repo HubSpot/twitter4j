@@ -2,6 +2,7 @@
 ./generate-lazy-object.sh AccountTotals
 #./generate-lazy-object.sh Category
 ./generate-lazy-object.sh DirectMessage
+./generate-lazy-object.sh EngagementResponse
 #./generate-lazy-object.sh HashtagEntity
 ./generate-lazy-object.sh IDs
 #./generate-lazy-object.sh MediaEntity
@@ -21,7 +22,7 @@
 #./generate-lazy-object.sh URLEntity
 ./generate-lazy-object.sh User
 ./generate-lazy-object.sh UserList
-sed -i "" "s/target = factory.createUserList(res);/target = factory.createAUserList(res);/g" ../../main/java/twitter4j/internal/json/LazyUserList.java
+sed -i "" "s/target = factory.createUserList(res);/target = factory.createAUserList(res);/g" ../../main/java/twitter4j/LazyUserList.java
 
 #./generate-lazy-object.sh UserMentionEntity
 

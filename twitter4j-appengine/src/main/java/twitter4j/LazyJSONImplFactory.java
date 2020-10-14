@@ -282,6 +282,11 @@ class LazyJSONImplFactory implements ObjectFactory {
     }
 
     @Override
+    public EngagementResponse createEngagementResponse(HttpResponse res) throws TwitterException {
+        return new LazyEngagementResponse(res ,factory);
+    }
+
+    @Override
     public TwitterAPIConfiguration createTwitterAPIConfiguration(HttpResponse res) throws TwitterException {
         return new LazyTwitterAPIConfiguration(res, factory);
     }

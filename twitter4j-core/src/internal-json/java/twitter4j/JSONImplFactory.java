@@ -265,6 +265,11 @@ class JSONImplFactory implements ObjectFactory {
         return new OEmbedJSONImpl(res, conf);
     }
 
+    @Override
+    public EngagementResponse createEngagementResponse(HttpResponse res) throws TwitterException {
+        return new EngagementResponseImpl(res, conf);
+    }
+
     /**
      * static factory method for twitter-text-java
      *

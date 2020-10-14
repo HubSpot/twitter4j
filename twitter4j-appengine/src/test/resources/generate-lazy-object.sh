@@ -1,5 +1,5 @@
-SOURCE=../../../../twitter4j-core/src/main/java/twitter4j/$1.java
-TARGET=../../main/java/twitter4j/internal/json/Lazy$1.java
+SOURCE=~/src/twitter4j/twitter4j-core/src/main/java/twitter4j/$1.java
+TARGET=~/src/twitter4j/twitter4j-appengine/main/java/twitter4j/Lazy$1.java
 NOW=`date +'%Y-%m-%d'`
 cp $SOURCE $TARGET
 

@@ -685,6 +685,12 @@ public class DAOTest extends TwitterTestBase {
         assertDeserializedFormIsEqual(directMessages);
     }
 
+    public void testEngagementAsJSON() throws Exception {
+        HttpClientImpl http = new HttpClientImpl();
+        EngagementResponse engagementResponse = new EngagementResponseImpl(getJSONObjectFromClassPath("/dao/engagementResponse.json"));
+
+    }
+
     public void testTwitterMethod() throws Exception {
         assertDeserializedFormIsSingleton(TwitterMethod.CREATE_LIST_MEMBER);
         assertDeserializedFormIsSingleton(TwitterMethod.BLOCK_LIST);

@@ -22,6 +22,7 @@ import junit.framework.TestSuite;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
+import org.junit.Ignore;
 
 import java.lang.reflect.Field;
 
@@ -31,6 +32,8 @@ import java.lang.reflect.Field;
  * @author Hiroaki Takeuchi - takke30 at gmail.com
  * @since Twitter4J 3.0.6
  */
+
+@Ignore
 public class Http2ClientTest extends TestCase {
 
     // specify running order

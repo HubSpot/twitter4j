@@ -37,6 +37,7 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 import twitter4j.api.DirectMessagesResources;
+import twitter4j.api.EngagementResource;
 import twitter4j.api.FavoritesResources;
 import twitter4j.api.FriendsFollowersResources;
 import twitter4j.api.HelpResources;
@@ -2049,6 +2050,22 @@ class TwitterImpl extends TwitterBaseImpl implements Twitter {
         .join(resources)));
   }
 
+
+  @Override
+  public EngagementResponse getTotals(EngagementTotalsRequest engagementTotalsRequest) throws TwitterException {
+    return factory.createEngagementResponse(post(conf.getRestBaseURL() + "application/rate_limit_status.json?resources=" ));
+  }
+
+  @Override
+  public EngagementResponse getLast28Hours() throws TwitterException {
+    return null;
+  }
+
+  @Override
+  public EngagementResponse getHistorical() throws TwitterException {
+    return null;
+  }
+
   @Override
   public TimelinesResources timelines() {
     return this;
@@ -2116,6 +2133,11 @@ class TwitterImpl extends TwitterBaseImpl implements Twitter {
 
   @Override
   public HelpResources help() {
+    return this;
+  }
+
+  @Override
+  public EngagementResource engagement() {
     return this;
   }
 
