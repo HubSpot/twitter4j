@@ -16,6 +16,7 @@
 
 package twitter4j;
 
+import org.junit.Ignore;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -31,6 +32,8 @@ import java.lang.reflect.Field;
  * @author Hiroaki Takeuchi - takke30 at gmail.com
  * @since Twitter4J 3.0.6
  */
+
+@Ignore
 public class Http2ClientTest extends TestCase {
 
     // specify running order

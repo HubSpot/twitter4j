@@ -36,6 +36,12 @@
       <version>8.1.7.v20160121</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13-beta-1</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
