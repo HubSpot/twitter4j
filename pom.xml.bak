@@ -30,19 +30,7 @@
     <hubspot.twitter4j.current.version>4.0.12-hubspot-SNAPSHOT</hubspot.twitter4j.current.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <basepom.check.skip-checkstyle>false</basepom.check.skip-checkstyle>
   </properties>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>com.googlecode</groupId>
-        <artifactId>kryo</artifactId>
-        <version>1.04</version>
-        <scope>test</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 
   <build>
     <plugins>
@@ -118,6 +106,17 @@
       <url>file:${user.home}/maven2/</url>
     </snapshotRepository>
   </distributionManagement>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.googlecode</groupId>
+        <artifactId>kryo</artifactId>
+        <version>1.04</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <profiles>
     <profile>

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -8,9 +8,14 @@
     <version>4.0.12-hubspot-SNAPSHOT</version>
   </parent>
 
-  <artifactId>twitter4j-http2-support</artifactId>
+  <artifactId>twitter4j-async</artifactId>
   <packaging>jar</packaging>
-  <name>twitter4j-http2-support</name>
+  <name>twitter4j-async</name>
+
+  <properties>
+    <!-- these tests will not work without storing API creds -->
+    <skipTests>true</skipTests>
+  </properties>
 
   <dependencies>
     <dependency>
@@ -19,27 +24,9 @@
       <version>${hubspot.twitter4j.current.version}</version>
     </dependency>
     <dependency>
-      <groupId>com.squareup.okhttp3</groupId>
-      <artifactId>okhttp</artifactId>
-      <version>3.0.1</version>
-    </dependency>
-    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.2</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <!-- this is just to install alpn-boot jar to local .m2 repository. to be used by maven-surefire-plugin and included in the bootclasspath -->
-      <groupId>org.mortbay.jetty.alpn</groupId>
-      <artifactId>alpn-boot</artifactId>
-      <version>8.1.7.v20160121</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13-beta-1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -55,10 +42,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.16</version>
-        <configuration combine.children="append">
-          <argLine>-Xbootclasspath/p:${user.home}/.m2/repository/org/mortbay/jetty/alpn/alpn-boot//8.1.7.v20160121/alpn-boot-8.1.7.v20160121.jar</argLine>
-        </configuration>
+        <version>2.12.4</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -77,22 +61,23 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>2.4</version>
         <configuration>
           <archive>
-            <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+            <manifestFile>src/main/resources/META-INF/MANIFEST.MF
+            </manifestFile>
             <manifest>
-              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              <addDefaultSpecificationEntries>true
+              </addDefaultSpecificationEntries>
+              <addDefaultImplementationEntries>true
+              </addDefaultImplementationEntries>
             </manifest>
           </archive>
         </configuration>
+        <version>2.4</version>
       </plugin>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>2.1.2</version>
         <executions>
           <execution>
             <goals>
@@ -100,26 +85,29 @@
             </goals>
           </execution>
         </executions>
+        <version>2.1.2</version>
       </plugin>
       <plugin>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.10.3</version>
-        <configuration>
-          <charset>UTF-8</charset>
-          <show>public</show>
-        </configuration>
         <executions>
           <execution>
             <id>javadoc-jar</id>
+            <phase>package</phase>
             <goals>
               <goal>jar</goal>
             </goals>
-            <phase>package</phase>
             <configuration>
+              <excludePackageNames>
+              </excludePackageNames>
               <failOnError>false</failOnError>
             </configuration>
           </execution>
         </executions>
+        <configuration>
+          <charset>UTF-8</charset>
+          <show>public</show>
+        </configuration>
+        <version>2.10.3</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -127,6 +115,7 @@
         <configuration>
           <encoding>UTF-8</encoding>
         </configuration>
+        <version>2.5</version>
       </plugin>
     </plugins>
   </build>
